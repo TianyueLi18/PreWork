@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hello!</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <h1>Get ready for the Light and Sound Memory Game!</h1>
+
+    <p>
+      Welcome to the game! Get ready to use your brain. Start the game by
+      pressing the "start" button.
+    </p>
+
+    <button id="startBtn" onclick="startGame()">
+      Start
+    </button>
+
+    <button id="stopBtn" class="hidden" onclick="stopGame()">
+      Stop
+    </button>
+
+    <div id="gameButtonArea">
+      <button
+        id="button1"
+        onclick="guess(1)"
+        onmousedown="startTone(1)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button2"
+        onclick="guess(2)"
+        onmousedown="startTone(2)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button3"
+        onclick="guess(3)"
+        onmousedown="startTone(3)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button4"
+        onclick="guess(4)"
+        onmousedown="startTone(4)"
+        onmouseup="stopTone()"
+      ></button>
+    </div>
+
+    <div id="mistakeArea">
+      <p>You have</p>
+      <button id="3mistakes">3</button>
+      <button id="2mistakes" class="hidden">2</button>
+      <button id="1mistakes" class="hidden">1</button>
+      <button id="0mistakes" class="hidden">0</button>
+      <p>mistakes left. Don't panic!</p>
+    </div>
+
+    <div id="progressBar">
+      <button id="second1"></button>
+      <button id="second2"></button>
+      <button id="second3"></button>
+      <button id="second4"></button>
+      <button id="second5"></button>
+      <button id="second6"></button>
+      <button id="second7"></button>
+      <button id="second8"></button>
+      <button id="second9"></button>
+      <button id="second10"></button>
+      <button id="second11"></button>
+      <button id="second12"></button>
+      <button id="second13"></button>
+      <button id="second14"></button>
+      <button id="second15"></button>
+    </div>
+  </body>
+</html>
