@@ -4,7 +4,7 @@
 
 Submitted by: Tianyue Li
 
-Time spent: 5 hours
+Time spent: 6 hours
 
 Link to project: https://glitch.com/edit/#!/organized-upbeat-witch
 
@@ -70,17 +70,17 @@ Note: unfortunately I could not record sound using RecordIt on Windows 10. Pleas
 
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words)
 
-//REWORD
-   I was inspired by the optional feature to limit the time of response on each turn and decided to make a progress bar to mimic a count-down as an additional feature.
-   Using similar codes for other buttons in this project, I was able to program the basic actions of these progress-bar buttons.
-   I adopted the timeout approach from other areas to make the buttons diappear in order, with set time intervals in between. I also used a global variable to count down, so that I can call "loseGame()" when the player's time run out.
-   When I test this out, although the buttons disappear in the right order, they seem to disappear at "random" time stamps, and do not restore to intial state when the player exits guessing phase. This leads to less and less time for the player at each subsequent turn, which leads inevitably to a timeout.
-   At first, I look at existing code and the console log to see if any small or snytax mistake is made. I then use console.log to see what the player's guess time is at each turn, and which button is disappearing at what time. This confirms that the guessTime is not reset for each turn, but there is no apparant indicator of why buttons are disappearing at random intervals.
-   I looked up differences between global and local variables specifically in the Javascript language to confirm my usage. I tinkered with what I wrote for a while but couldn't change the pattern.
-   After sleeping over it, I decided to make a flowchart of the game process and determine whether my functions are called at the right time. That is when I decide to separate the removal of buttons and the count down of time, and each process become simpler and is individually tackled.
-   I was not familiar with the setTimeout function before, so I read its documentation. That is when I addressed my misconception of the function waiting until after each function execution to move on; rather, it simply set a function call at a later time. Looking at the flowchart with this new understanding, I realize the random disappearance has to do with previous held-up removals that were not executed until this next round.
-   Looking online, I adopted pieces of code from the fourth link in question 1 to clear all the timeouts, and the problem with progress-bar buttons is solved.
-   The game-losing timeout appear as soon as game is started even though all my variables are correct. I then recalled the topic of macros and call expressions that evaluates the operand before applying the operator, and I hypothesized that I must have called the loseGame function somewhere. After addressing this, the game works as expected.
+   When making a button-progress-bar to mimic a count-down, I was able to program the basic HTML and CSS by adapting code from other buttons and implement a similar timeout approach to make the buttons diappear in set time intervals. I also planned to call loseGame() when a global variable indicating the player's time reduces to 0.
+   
+   When I test this out, the buttons started disappearing in at "random" time intervals, and do not restore to full time after turns. At first, I looked at existing code and the console log to check for snytax errors. I then used console.log to see what the guessTime was at each turn, which confirmed that it was not reset for each turn, but there was no indication of why buttons were disappearing at random intervals. I looked up the difference between global and local variables specifically in Javascript to confirm my usage, tinkered with what I wrote but could not change the pattern.
+   
+   After sleeping on this, I decided to make a flowchart of the game process and determine where my functions should be called. After realizing the lack of direct connection, I separated the removal of buttons and the count down of time, and each process became simpler and was individually tackled. 
+   
+   I was not familiar with the setTimeout function, so I read its documentation. That was when I addressed my misconception that outer functions wait for the time-out to execute before moving on; rather, it simply set a function call at a later time. Looking at the flowchart with this new understanding, I realized the random disappearance had to be previous held-up removals that were not executed until a new turn.
+   
+   To clear all time-outs, I adopted pieces of code from the fourth link in question 1, and the problem with progress-bar buttons was solved.
+   
+   It did lead to another problem. The time would appear to be out as soon as a player hit "start" even though all my variables were correct. I then recalled the topic of macros and call expressions that evaluate the operand before applying the operator, and I hypothesized that I must have called the loseGame function somewhere before the game started. After addressing this, the game worked as expected.
 
 3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words)
   
